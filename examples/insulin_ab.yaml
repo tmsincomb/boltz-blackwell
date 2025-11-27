@@ -1,0 +1,11 @@
+# Human Insulin - A and B chains
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: GIVEQCCTSICSLYQLENYCN
+      msa: empty
+  - protein:
+      id: B
+      sequence: FVNQHLCGSHLVEALYLVCGERGFFYTPKT
+      msa: empty

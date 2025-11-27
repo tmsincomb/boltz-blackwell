@@ -1,0 +1,8 @@
+# Example with pre-computed MSA for better accuracy
+# Replace msa path with your actual .a3m file
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: GIVEQCCTSICSLYQLENYCN
+      msa: /path/to/your/msa.a3m  # Replace with actual path

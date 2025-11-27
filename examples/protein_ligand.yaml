@@ -1,0 +1,11 @@
+# Example protein-ligand complex
+# Replace with your own protein sequence and ligand SMILES
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: GIVEQCCTSICSLYQLENYCN
+      msa: empty
+  - ligand:
+      id: B
+      smiles: 'CC(=O)OC1=CC=CC=C1C(=O)O'  # Aspirin

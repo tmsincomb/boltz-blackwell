@@ -1,0 +1,38 @@
+# Output directories
+output/
+test_output/
+boltz_results_*/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+lightning_logs/
+
+# Model cache (can be large)
+.cache/
+~/.boltz/
