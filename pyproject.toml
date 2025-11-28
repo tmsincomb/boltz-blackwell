@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "boltz-blackwell"
-version = "0.1.1"
+version = "0.1.2"
 description = "Easy installation and utilities for running Boltz on NVIDIA Blackwell GPUs"
 readme = "README.md"
 license = "MIT"
