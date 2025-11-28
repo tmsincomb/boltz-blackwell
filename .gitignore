@@ -13,11 +13,14 @@ __pycache__/
 *.egg
 dist/
 build/
+.eggs/
+*.whl
 
 # Virtual environments
 venv/
 env/
 .env/
+.venv/
 
 # IDE
 .vscode/
@@ -29,6 +32,15 @@ env/
 .DS_Store
 Thumbs.db
 
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
 # Logs
 *.log
 lightning_logs/
@@ -36,3 +48,7 @@ lightning_logs/
 # Model cache (can be large)
 .cache/
 ~/.boltz/
+
+# tools and ide
+.claude
+.vscode

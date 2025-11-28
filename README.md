@@ -23,24 +23,44 @@ Use **PyTorch nightly with CUDA 13.0** which includes:
 
 Run Boltz with `--no_kernels` flag to disable cuEquivariance kernels.
 
-## Quick Start
+## Quick Start (PyPI)
+
+The easiest way to get started:
+
+```bash
+# Install boltz-blackwell from PyPI
+pip install boltz-blackwell
+
+# Install PyTorch nightly + Boltz with one command
+boltz-blackwell install
+
+# Verify everything is working
+boltz-blackwell check
+
+# Run a prediction (--no_kernels is automatic)
+boltz-blackwell predict input.yaml --output results/
+```
+
+## Installation from Source
 
 ```bash
 # Clone this repo
-git clone https://github.com/YOUR_USERNAME/boltz-blackwell.git
+git clone https://github.com/tmsincomb/boltz-blackwell.git
 cd boltz-blackwell
 
-# Install everything (creates conda env or installs in base)
+# Install the package
+pip install -e .
+
+# Install PyTorch and Boltz
+boltz-blackwell install
+
+# Or use the shell script
 ./install.sh
-
-# Run tests
-./test.sh
-
-# Run a prediction
-boltz predict examples/insulin_a.yaml --out_dir output/ --no_kernels
 ```
 
 ## Manual Installation
+
+If you prefer to install manually:
 
 ```bash
 # 1. Install PyTorch nightly with CUDA 13.0
@@ -55,7 +75,28 @@ python -c "import torch; print('CUDA:', torch.version.cuda); print('Arch:', torc
 
 ## Usage
 
-### Basic Prediction (Local, No MSA Server)
+### Using boltz-blackwell CLI (Recommended)
+
+The `boltz-blackwell` CLI automatically adds the `--no_kernels` flag:
+
+```bash
+# Basic prediction
+boltz-blackwell predict input.yaml
+
+# Fast mode (quick test)
+boltz-blackwell predict input.yaml --fast
+
+# High quality mode
+boltz-blackwell predict input.yaml --high-quality
+
+# Custom settings
+boltz-blackwell predict input.yaml --samples 3 --steps 100 --output results/
+
+# With MSA server (best accuracy, requires internet)
+boltz-blackwell predict input.yaml --use-msa-server
+```
+
+### Using boltz directly
 
 ```bash
 # Single-sequence mode (fully local, fast but lower accuracy)
