@@ -46,6 +46,7 @@ boltz-blackwell = "boltz_blackwell.cli:main"
 boltz-blackwell-install = "boltz_blackwell.installer:main"
 boltz-blackwell-check = "boltz_blackwell.check:main"
 boltz-blackwell-predict = "boltz_blackwell.predict:main"
+boltz-blackwell-manifest = "boltz_blackwell.manifest:main"
 
 [project.urls]
 Homepage = "https://github.com/tmsincomb/boltz-blackwell"

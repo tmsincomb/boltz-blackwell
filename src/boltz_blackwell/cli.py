@@ -24,11 +24,13 @@ Commands:
   install     Install PyTorch and Boltz with Blackwell GPU support
   check       Check GPU compatibility and installation status
   predict     Run Boltz prediction with Blackwell-optimized settings
+  manifest    Generate manifest documenting hardware and validation
 
 Examples:
   boltz-blackwell install              # Install everything
   boltz-blackwell check                # Verify installation
   boltz-blackwell predict input.yaml   # Run prediction
+  boltz-blackwell manifest             # Generate manifest JSON
 
 For more information on each command:
   boltz-blackwell <command> --help
@@ -44,6 +46,7 @@ For more information on each command:
     _add_install_subparser(subparsers)
     _add_check_subparser(subparsers)
     _add_predict_subparser(subparsers)
+    _add_manifest_subparser(subparsers)
 
     return parser
 
@@ -148,6 +151,27 @@ def _add_predict_subparser(subparsers: argparse._SubParsersAction) -> None:
     )
 
 
+def _add_manifest_subparser(subparsers: argparse._SubParsersAction) -> None:
+    """Add the manifest subcommand."""
+    manifest_parser = subparsers.add_parser(
+        "manifest",
+        help="Generate manifest documenting hardware, software, and validation",
+        description="Generate a JSON manifest with hardware info, software versions, and validation results.",
+    )
+    manifest_parser.add_argument(
+        "--skip-validation",
+        action="store_true",
+        help="Skip the prediction validation test (faster)",
+    )
+    manifest_parser.add_argument(
+        "--output",
+        "-o",
+        type=str,
+        default=None,
+        help="Output file path (default: stdout)",
+    )
+
+
 def dispatch_command(args: argparse.Namespace) -> int:
     """
     Dispatch to the appropriate command handler.
@@ -171,6 +195,10 @@ def dispatch_command(args: argparse.Namespace) -> int:
             from boltz_blackwell.predict import main as predict_main
 
             return predict_main(args)
+        case "manifest":
+            from boltz_blackwell.manifest import main as manifest_main
+
+            return manifest_main(args)
         case _:
             return 0
 
