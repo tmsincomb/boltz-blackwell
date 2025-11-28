@@ -52,11 +52,11 @@ fi
 
 # Check Python
 echo -e "\n${YELLOW}Checking Python...${NC}"
-if command -v python3 &> /dev/null; then
-    PYTHON_VERSION=$(python3 --version)
+if command -v python &> /dev/null; then
+    PYTHON_VERSION=$(python --version)
     echo -e "${GREEN}$PYTHON_VERSION${NC}"
 else
-    echo -e "${RED}Python 3 not found. Please install Python 3.10+${NC}"
+    echo -e "${RED}Python not found. Please install Python 3.10+${NC}"
     exit 1
 fi
 
@@ -68,7 +68,7 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 
 # Verify PyTorch installation
 echo -e "\n${YELLOW}Verifying PyTorch installation...${NC}"
-python3 -c "
+python -c "
 import torch
 print(f'PyTorch Version: {torch.__version__}')
 print(f'CUDA Version: {torch.version.cuda}')
@@ -84,7 +84,7 @@ pip install boltz[cuda] -U
 
 # Verify Boltz installation
 echo -e "\n${YELLOW}Verifying Boltz installation...${NC}"
-python3 -c "
+python -c "
 import boltz
 print(f'Boltz Version: {getattr(boltz, \"__version__\", \"unknown\")}')
 "
