@@ -264,6 +264,22 @@ def handle_gpu_check(force: bool) -> bool:
 
     if not gpu_found:
         print_error("nvidia-smi not found. Please install NVIDIA drivers.")
+        print()
+        print("To install NVIDIA drivers for Blackwell GPUs:")
+        print()
+        print("  # 1. Add NVIDIA's official repository")
+        print("  curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb -o cuda-keyring.deb")
+        print("  sudo dpkg -i cuda-keyring.deb")
+        print("  sudo apt update")
+        print()
+        print("  # 2. Install the driver (580+ required for Blackwell)")
+        print("  sudo apt install nvidia-driver-580")
+        print()
+        print("  # 3. Reboot")
+        print("  sudo reboot")
+        print()
+        print("For other distros, see: https://developer.nvidia.com/cuda-downloads")
+        print()
         if not force:
             return False
         print_warning("Continuing anyway due to --force flag")

@@ -32,6 +32,21 @@ if command -v nvidia-smi &> /dev/null; then
     fi
 else
     echo -e "${RED}nvidia-smi not found. Please install NVIDIA drivers.${NC}"
+    echo ""
+    echo "To install NVIDIA drivers for Blackwell GPUs:"
+    echo ""
+    echo "  # 1. Add NVIDIA's official repository"
+    echo "  curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb -o cuda-keyring.deb"
+    echo "  sudo dpkg -i cuda-keyring.deb"
+    echo "  sudo apt update"
+    echo ""
+    echo "  # 2. Install the driver (580+ required for Blackwell)"
+    echo "  sudo apt install nvidia-driver-580"
+    echo ""
+    echo "  # 3. Reboot"
+    echo "  sudo reboot"
+    echo ""
+    echo "For other distros, see: https://developer.nvidia.com/cuda-downloads"
     exit 1
 fi
 
