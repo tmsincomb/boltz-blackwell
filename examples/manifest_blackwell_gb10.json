@@ -1,0 +1,38 @@
+{
+  "generated_at": "2025-11-28T01:15:49.841507+00:00",
+  "boltz_blackwell_version": "0.1.0",
+  "hardware": {
+    "driver_version": "580.95.05",
+    "gpu_name": "NVIDIA GB10",
+    "gpu_count": 1,
+    "compute_capability": "12.1",
+    "cuda_version": "13.0"
+  },
+  "software": {
+    "python_version": "3.12.12",
+    "pytorch_version": "2.10.0.dev20251123+cu130",
+    "arch_list": [
+      "sm_80",
+      "sm_90",
+      "sm_100",
+      "sm_110",
+      "sm_120",
+      "compute_120"
+    ],
+    "sm_120_support": true,
+    "boltz_version": "2.2.1",
+    "pytorch_lightning_version": "2.5.0",
+    "numpy_version": "1.26.4",
+    "rdkit_version": "2025.09.1"
+  },
+  "validation": {
+    "cuda_available": true,
+    "tensor_allocation": true,
+    "boltz_cli_available": true,
+    "prediction_test": {
+      "passed": true,
+      "input": "built-in test sequence (5 residues: GGGGG)",
+      "duration_seconds": 3.22
+    }
+  }
+}
